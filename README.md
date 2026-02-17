@@ -126,6 +126,31 @@ kaggle             # Kaggle API client
 - **Input:** RGB images of flowers
 - **Output:** Flower species classification (5 classes: Daisy, Dandelion, Rose, Sunflower, Tulip)
 - **Classes:** 5 flower species
+  flowchart TD
+    A[Input Image<br/>(64 × 3 × 64 × 64)]
+    B[conv1<br/>Conv(3→64) + BN + ReLU]
+    C[conv2<br/>Conv(64→128) + BN + ReLU + MaxPool]
+    
+    D1[res1 - Conv(128→128) + BN + ReLU]
+    D2[res1 - Conv(128→128) + BN + ReLU]
+    
+    E[conv3<br/>Conv(128→256) + BN + ReLU + MaxPool]
+    F[conv4<br/>Conv(256→512) + BN + ReLU + MaxPool]
+    
+    G1[res2 - Conv(512→512) + BN + ReLU]
+    G2[res2 - Conv(512→512) + BN + ReLU]
+    
+    H[AdaptiveMaxPool2d(1×1)]
+    I[Flatten]
+    J[Dropout(0.2)]
+    K[Linear(512 → num_classes)]
+    L[Output]
+
+    A --> B --> C --> D1 --> D2 --> E --> F --> G1 --> G2 --> H --> I --> J --> K --> L
+
+    C -->|skip| D2
+    F -->|skip| G2
+
 
 ## 🖼️ Testing Images
 

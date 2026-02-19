@@ -1,6 +1,7 @@
 # 🌸 Flower Recognition Project
 
 A deep learning project for flower species recognition using PyTorch and Streamlit.
+Presentation: [https://www.canva.com/design/DAHAc-KN7gQ/revzIBL_wn3lo8PMUp3jdw/view?utm_content=DAHAc-KN7gQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8c2d3eea85]
 
 ## 📋 Project Overview
 
